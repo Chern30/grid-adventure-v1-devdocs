@@ -69,22 +69,34 @@ Lava tiles inflict damage to the agent. When the agent lands on lava, it takes 2
 
 ## Powerups
 
-Powerups may also appear on the grid and can be picked up by the agent. They provide temporary boosts and are associated with either a turn or usage limit.
+Powerups may also appear on the grid and can be picked up by the agent. They provide temporary boosts and are associated with either a [turn limit](#turn-limit-anchor) or [usage limit](#usage-limit-anchor). The agent can pickup and have multiple powerups at once, including duplicates.
+
+<a name="turn-limit-anchor"></a>
+!!! info "Turn limit"
+    Powerups with a turn limit count down after every turn. The effect expires when the limit reaches 0. If the agent picks up a duplicate powerup, both will count down simultaneously. Essentially, the turn limit is reset when the second powerup is picked up.
+
+<a name="usage-limit-anchor"></a>
+!!! info "Usage limit"
+    Powerups with a usage limit count down only when used. It expires when the usage limit reaches 0. If a duplicate is picked up, only one instance is used at any moment.
+
 
 ### Speed Powerup
 
 ![Speed](../assets/boots.png)
 
-The speed powerup allows the agent to move 2 tiles in 1 turn. It has a 5-turn limit. Note that the agent can still be blocked by any objects in its path.
+The speed powerup allows the agent to move 2 tiles in 1 turn. It has a [turn limit](#turn-limit-anchor) of 5. Note that the agent can still be blocked by any objects in its path.
+
+!!! note "Stacking"
+    Even if the agent has 2 active speed powerups, it is still only able to move 2 tiles in 1 turn.
 
 ### Shield Powerup
 
 ![Shield](../assets/shields.png)
 
-Shield protects the agent from damage taken. It has a usage limit of 5. The shield is used once every time the agent lands on lava.
+Shield protects the agent from damage taken. It has a [usage limit](#usage-limit-anchor) of 5. The shield is used once every time the agent lands on lava.
 
 ### Phasing Powerup
 
 ![Phasing](../assets/ghosts.png)
 
-Phasing allows the agent to move through objects. It has a turn limit of 5. While the powerup is active, the agent can move through walls, doors and boxes. The agent does not take damage from lava as well.
+Phasing allows the agent to move through objects. It has a [turn limit](#turn-limit-anchor) of 5. While the powerup is active, the agent can move through walls, doors and boxes. The agent does not take damage from lava as well.
